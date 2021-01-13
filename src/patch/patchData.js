@@ -1,3 +1,5 @@
+const domPropsRE = /\[A-Z]|^(?:value|checked|selected|muted)$/
+
 export default function patchData(el, key, prevValue, nextValue) {
   switch (key) {
     case 'style':

@@ -19,6 +19,9 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    minimize: false
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',

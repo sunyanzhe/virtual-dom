@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf ./dist ",
-    "build:react": "cross-env NODE_TYPE=react webpack --config=./build/webpack.config.js"
+    "build:react": "cross-env NODE_TYPE=react webpack --config=./build/webpack.config.js",
+    "build:vue2": "cross-env NODE_TYPE=vue2 webpack --config=./build/webpack.config.js",
+    "build:vue3": "cross-env NODE_TYPE=vue3 webpack --config=./build/webpack.config.js",
+    "dist": "npm run clean && npm run build:react && npm run build:vue2 && npm run build:vue3"
   },
   "repository": {
     "type": "git",

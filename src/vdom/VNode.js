@@ -15,6 +15,8 @@ class VNode {
     this.flag = tag === undefined ? NODE_FLAG.TEXT : NODE_FLAG.ELEMENT
     this._isVNode = true
 
+    if (data && data.key) this.key = data.key
+
     if (Array.isArray(children)) {
 
       if (children.length === 0) {
