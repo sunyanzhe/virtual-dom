@@ -15,6 +15,13 @@ module.exports = __webpack_require__(3363);
 
 /***/ }),
 
+/***/ 2462:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(6064);
+
+/***/ }),
+
 /***/ 3649:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -93,6 +100,17 @@ module.exports = path.Array.isArray;
 
 /***/ }),
 
+/***/ 9:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(4929);
+var entryVirtual = __webpack_require__(5703);
+
+module.exports = entryVirtual('Array').findIndex;
+
+
+/***/ }),
+
 /***/ 4900:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -100,6 +118,21 @@ __webpack_require__(186);
 var entryVirtual = __webpack_require__(5703);
 
 module.exports = entryVirtual('Array').slice;
+
+
+/***/ }),
+
+/***/ 7147:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var findIndex = __webpack_require__(9);
+
+var ArrayPrototype = Array.prototype;
+
+module.exports = function (it) {
+  var own = it.findIndex;
+  return it === ArrayPrototype || (it instanceof Array && own === ArrayPrototype.findIndex) ? findIndex : own;
+};
 
 
 /***/ }),
@@ -2239,6 +2272,38 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 /***/ }),
 
+/***/ 4929:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(6887);
+var $findIndex = __webpack_require__(3610).findIndex;
+var addToUnscopables = __webpack_require__(8479);
+var arrayMethodUsesToLength = __webpack_require__(5486);
+
+var FIND_INDEX = 'findIndex';
+var SKIPS_HOLES = true;
+
+var USES_TO_LENGTH = arrayMethodUsesToLength(FIND_INDEX);
+
+// Shouldn't skip holes
+if (FIND_INDEX in []) Array(1)[FIND_INDEX](function () { SKIPS_HOLES = false; });
+
+// `Array.prototype.findIndex` method
+// https://tc39.es/ecma262/#sec-array.prototype.findindex
+$({ target: 'Array', proto: true, forced: SKIPS_HOLES || !USES_TO_LENGTH }, {
+  findIndex: function findIndex(callbackfn /* , that = undefined */) {
+    return $findIndex(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables(FIND_INDEX);
+
+
+/***/ }),
+
 /***/ 3242:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -3050,6 +3115,16 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ 6064:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(7147);
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ 2073:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -3348,7 +3423,7 @@ function mountElement(vnode, parent, refNode) {
 
   if (childFlag !== CHILD_FLAG.NO_CHILD) {
     if (childFlag & CHILD_FLAG.SINGLE_CHILD) {
-      mount_mount(children, el);
+      mount(children, el);
     } else if (childFlag & CHILD_FLAG.MULTI_CHILD) {
       var _iterator = _createForOfIteratorHelper(children),
           _step;
@@ -3356,7 +3431,7 @@ function mountElement(vnode, parent, refNode) {
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var child = _step.value;
-          mount_mount(child, el);
+          mount(child, el);
         }
       } catch (err) {
         _iterator.e(err);
@@ -3378,11 +3453,11 @@ function mountText(vnode, parent) {
 
 
 
-function mount_mount(vnode, parent) {
+function mount(vnode, parent, refNode) {
   var flag = vnode.flag;
 
   if (flag & NODE_FLAG.ELEMENT) {
-    mountElement(vnode, parent);
+    mountElement(vnode, parent, refNode);
   } else if (flag & NODE_FLAG.TEXT) {
     mountText(vnode, parent);
   }
@@ -3391,7 +3466,7 @@ function mount_mount(vnode, parent) {
 
 function replaceNode(prevNode, nextNode, parent) {
   parent.removeChild(prevNode.el);
-  mount_mount(nextNode, parent);
+  mount(nextNode, parent);
 }
 ;// CONCATENATED MODULE: ./src/diff/react-diff.js
 
@@ -3415,13 +3490,13 @@ function reactdiff(prevChildren, nextChildren, parent) {
 
     if (j === undefined) {
       var refNode = _i === 0 ? prevChildren[0].el : nextChildren[_i - 1].el.nextSibling;
-      mount_mount(nextChild, parent, refNode);
+      mount(nextChild, parent, refNode);
     } else {
-      patch_patch(prevChildren[j], nextChild, parent);
+      patch(prevChildren[j], nextChild, parent);
 
       if (j < lastIndex) {
         var _refNode = nextChildren[_i - 1].el.nextSibling;
-        parent.inserBefore(nextChild.el, _refNode);
+        parent.insertBefore(nextChild.el, _refNode);
       } else {
         lastIndex = j;
       }
@@ -3433,8 +3508,91 @@ function reactdiff(prevChildren, nextChildren, parent) {
     if (!nextIndexMap.hasOwnProperty(_key)) parent.removeChild(prevChildren[_i2].el);
   }
 }
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js-stable/instance/find-index.js
+var find_index = __webpack_require__(2462);
+var find_index_default = /*#__PURE__*/__webpack_require__.n(find_index);
 ;// CONCATENATED MODULE: ./src/diff/vue2-diff.js
-function vue2diff(prevChildren, nextChildren, parent) {}
+
+
+
+function vue2diff(prevChildren, nextChildren, parent) {
+  var prevStartIndex = 0,
+      nextStartIndex = 0,
+      prevEndIndex = prevChildren.length - 1,
+      nextEndIndex = nextChildren.length - 1,
+      prevStartNode = prevChildren[prevStartIndex],
+      prevEndNode = prevChildren[prevEndIndex],
+      nextStartNode = nextChildren[nextStartIndex],
+      nextEndNode = nextChildren[nextEndIndex];
+
+  while (prevStartIndex <= prevEndIndex && nextStartIndex <= nextEndIndex) {
+    if (prevStartNode === undefined) {
+      prevStartNode = prevChildren[++prevStartIndex];
+    } else if (prevEndNode === undefined) {
+      prevEndNode = prevChildren[--prevEndIndex];
+    } else if (prevStartNode.key === nextStartNode.key) {
+      patch(prevStartNode, nextStartNode, parent);
+      prevStartIndex++;
+      nextStartIndex++;
+      prevStartNode = prevChildren[prevStartIndex];
+      nextStartNode = nextChildren[nextStartIndex];
+    } else if (prevEndNode.key === nextEndNode.key) {
+      patch(prevEndNode, nextEndNode, parent);
+      prevEndIndex--;
+      nextEndIndex--;
+      prevEndNode = prevChildren[prevEndIndex];
+      nextEndNode = nextChildren[nextEndIndex];
+    } else if (prevStartNode.key === nextEndNode.key) {
+      patch(prevStartNode, nextEndNode, parent);
+      parent.insertBefore(prevStartNode.el, prevEndNode.el.nextSibling);
+      prevStartIndex++;
+      nextEndIndex--;
+      prevStartNode = prevChildren[prevStartIndex];
+      nextEndNode = nextChildren[nextEndIndex];
+    } else if (prevEndNode.key === nextStartNode.key) {
+      patch(prevEndNode, nextStartNode, parent);
+      parent.insertBefore(prevEndNode.el, prevStartNode.el);
+      prevEndIndex--;
+      nextStartIndex++;
+      prevEndNode = prevChildren[prevEndIndex];
+      nextStartNode = nextChildren[nextStartIndex];
+    } else {
+      (function () {
+        var nextKey = nextStartNode.key,
+            prevIndex = find_index_default()(prevChildren).call(prevChildren, function (child) {
+          return child && child.key === nextKey;
+        });
+
+        if (prevIndex === -1) {
+          mount(nextStartNode, parent, prevStartNode.el);
+        } else {
+          var prevNode = prevChildren[prevIndex];
+          patch(prevNode, nextStartNode, parent);
+          parent.insertBefore(prevNode.el, prevStartNode.el);
+          prevChildren[prevIndex] = undefined;
+        }
+
+        nextStartIndex++;
+        nextStartNode = nextChildren[nextStartIndex];
+      })();
+    }
+  }
+
+  if (nextStartIndex > nextEndIndex) {
+    while (prevStartIndex <= prevEndIndex) {
+      if (!prevChildren[prevStartIndex]) {
+        prevStartIndex++;
+        continue;
+      }
+
+      parent.removeChild(prevChildren[prevStartIndex++].el);
+    }
+  } else if (prevStartIndex > prevEndIndex) {
+    while (nextStartIndex <= nextEndIndex) {
+      mount(nextChildren[nextStartIndex++], parent, prevStartNode.el);
+    }
+  }
+}
 ;// CONCATENATED MODULE: ./src/diff/vue3-diff.js
 function vue3diff(prevChildren, nextChildren, parent) {}
 ;// CONCATENATED MODULE: ./src/diff/index.js
@@ -3460,6 +3618,8 @@ function patchChildren_createForOfIteratorHelper(o, allowArrayLike) { var it; if
 function patchChildren_unsupportedIterableToArray(o, minLen) { var _context; if (!o) return; if (typeof o === "string") return patchChildren_arrayLikeToArray(o, minLen); var n = slice_default()(_context = Object.prototype.toString.call(o)).call(_context, 8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return from_default()(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return patchChildren_arrayLikeToArray(o, minLen); }
 
 function patchChildren_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
 
 
 
@@ -3577,7 +3737,7 @@ function patchChildren(prevChildren, prevChildFlag, nextChildren, nextChildFlag,
         default:
           // 新的 children 中有多个子节点时，会执行该 case 语句块
           // 关键的diff算法
-          var method = 'reactdiff';
+          var method = 'vue3diff';
           src_diff[method](prevChildren, nextChildren, parent);
           break;
       }
@@ -3632,7 +3792,7 @@ function patchText(prevNode, nextNode) {
 
 
 
-function patch_patch(prevNode, nextNode, parent) {
+function patch(prevNode, nextNode, parent) {
   if (prevNode.flag !== nextNode.flag) {
     replaceNode(prevNode, nextNode, parent);
   } else if (nextNode.flag === NODE_FLAG.ELEMENT) {
@@ -3649,11 +3809,11 @@ function render(vnode, parent) {
   var prevNode = parent._vnode;
 
   if (!prevNode) {
-    mount_mount(vnode, parent);
+    mount(vnode, parent);
     parent._vnode = vnode;
   } else {
     if (vnode) {
-      patch_patch(prevNode, vnode, parent);
+      patch(prevNode, vnode, parent);
       parent._vnode = vnode;
     } else {
       parent.removeChild(prevNode.el);
