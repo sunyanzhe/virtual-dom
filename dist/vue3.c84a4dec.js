@@ -15,10 +15,31 @@ module.exports = __webpack_require__(3363);
 
 /***/ }),
 
+/***/ 7766:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(8065);
+
+/***/ }),
+
+/***/ 4494:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(9743);
+
+/***/ }),
+
 /***/ 2462:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(6064);
+
+/***/ }),
+
+/***/ 2366:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(2527);
 
 /***/ }),
 
@@ -50,6 +71,20 @@ module.exports = __webpack_require__(2547);
 
 /***/ }),
 
+/***/ 3592:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(7385);
+
+/***/ }),
+
+/***/ 8363:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(1522);
+
+/***/ }),
+
 /***/ 9996:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -64,6 +99,59 @@ module.exports = __webpack_require__(1258);
 
 /***/ }),
 
+/***/ 5238:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(1493);
+
+/***/ }),
+
+/***/ 8317:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(4408);
+
+/***/ }),
+
+/***/ 1446:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(6600);
+
+/***/ }),
+
+/***/ 4243:
+/***/ ((module) => {
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+module.exports = _arrayLikeToArray;
+
+/***/ }),
+
+/***/ 6868:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Array$isArray = __webpack_require__(8363);
+
+var arrayLikeToArray = __webpack_require__(4243);
+
+function _arrayWithoutHoles(arr) {
+  if (_Array$isArray(arr)) return arrayLikeToArray(arr);
+}
+
+module.exports = _arrayWithoutHoles;
+
+/***/ }),
+
 /***/ 6394:
 /***/ ((module) => {
 
@@ -74,6 +162,79 @@ function _classCallCheck(instance, Constructor) {
 }
 
 module.exports = _classCallCheck;
+
+/***/ }),
+
+/***/ 5400:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Array$from = __webpack_require__(3592);
+
+var _isIterable = __webpack_require__(8317);
+
+var _Symbol = __webpack_require__(1446);
+
+function _iterableToArray(iter) {
+  if (typeof _Symbol !== "undefined" && _isIterable(Object(iter))) return _Array$from(iter);
+}
+
+module.exports = _iterableToArray;
+
+/***/ }),
+
+/***/ 6670:
+/***/ ((module) => {
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableSpread;
+
+/***/ }),
+
+/***/ 9036:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var arrayWithoutHoles = __webpack_require__(6868);
+
+var iterableToArray = __webpack_require__(5400);
+
+var unsupportedIterableToArray = __webpack_require__(9299);
+
+var nonIterableSpread = __webpack_require__(6670);
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+}
+
+module.exports = _toConsumableArray;
+
+/***/ }),
+
+/***/ 9299:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Array$from = __webpack_require__(3592);
+
+var _sliceInstanceProperty = __webpack_require__(5238);
+
+var arrayLikeToArray = __webpack_require__(4243);
+
+function _unsupportedIterableToArray(o, minLen) {
+  var _context;
+
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+
+  var n = _sliceInstanceProperty(_context = Object.prototype.toString.call(o)).call(_context, 8, -1);
+
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return _Array$from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray;
 
 /***/ }),
 
@@ -100,6 +261,28 @@ module.exports = path.Array.isArray;
 
 /***/ }),
 
+/***/ 5367:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(5906);
+var entryVirtual = __webpack_require__(5703);
+
+module.exports = entryVirtual('Array').concat;
+
+
+/***/ }),
+
+/***/ 4162:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(290);
+var entryVirtual = __webpack_require__(5703);
+
+module.exports = entryVirtual('Array').fill;
+
+
+/***/ }),
+
 /***/ 9:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -107,6 +290,17 @@ __webpack_require__(4929);
 var entryVirtual = __webpack_require__(5703);
 
 module.exports = entryVirtual('Array').findIndex;
+
+
+/***/ }),
+
+/***/ 2999:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(1876);
+var entryVirtual = __webpack_require__(5703);
+
+module.exports = entryVirtual('Array').reduce;
 
 
 /***/ }),
@@ -122,6 +316,36 @@ module.exports = entryVirtual('Array').slice;
 
 /***/ }),
 
+/***/ 6043:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var concat = __webpack_require__(5367);
+
+var ArrayPrototype = Array.prototype;
+
+module.exports = function (it) {
+  var own = it.concat;
+  return it === ArrayPrototype || (it instanceof Array && own === ArrayPrototype.concat) ? concat : own;
+};
+
+
+/***/ }),
+
+/***/ 446:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fill = __webpack_require__(4162);
+
+var ArrayPrototype = Array.prototype;
+
+module.exports = function (it) {
+  var own = it.fill;
+  return it === ArrayPrototype || (it instanceof Array && own === ArrayPrototype.fill) ? fill : own;
+};
+
+
+/***/ }),
+
 /***/ 7147:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -132,6 +356,21 @@ var ArrayPrototype = Array.prototype;
 module.exports = function (it) {
   var own = it.findIndex;
   return it === ArrayPrototype || (it instanceof Array && own === ArrayPrototype.findIndex) ? findIndex : own;
+};
+
+
+/***/ }),
+
+/***/ 8025:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var reduce = __webpack_require__(2999);
+
+var ArrayPrototype = Array.prototype;
+
+module.exports = function (it) {
+  var own = it.reduce;
+  return it === ArrayPrototype || (it instanceof Array && own === ArrayPrototype.reduce) ? reduce : own;
 };
 
 
@@ -193,6 +432,26 @@ module.exports = path.Symbol;
 
 /***/ }),
 
+/***/ 7385:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(4493);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 1522:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(4034);
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ 2209:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -213,6 +472,44 @@ __webpack_require__(7971);
 var getIterator = __webpack_require__(3476);
 
 module.exports = getIterator;
+
+
+/***/ }),
+
+/***/ 1493:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(9601);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 4408:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(7634);
+__webpack_require__(7971);
+var isIterable = __webpack_require__(663);
+
+module.exports = isIterable;
+
+
+/***/ }),
+
+/***/ 6600:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(7473);
+__webpack_require__(8783);
+__webpack_require__(3975);
+__webpack_require__(6774);
+__webpack_require__(620);
+// TODO: Remove from `core-js@4`
+__webpack_require__(6172);
+
+module.exports = parent;
 
 
 /***/ }),
@@ -260,6 +557,31 @@ module.exports = function (it) {
   if (!isObject(it)) {
     throw TypeError(String(it) + ' is not an object');
   } return it;
+};
+
+
+/***/ }),
+
+/***/ 1860:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var toObject = __webpack_require__(9678);
+var toAbsoluteIndex = __webpack_require__(9413);
+var toLength = __webpack_require__(3057);
+
+// `Array.prototype.fill` method implementation
+// https://tc39.es/ecma262/#sec-array.prototype.fill
+module.exports = function fill(value /* , start = 0, end = @length */) {
+  var O = toObject(this);
+  var length = toLength(O.length);
+  var argumentsLength = arguments.length;
+  var index = toAbsoluteIndex(argumentsLength > 1 ? arguments[1] : undefined, length);
+  var end = argumentsLength > 2 ? arguments[2] : undefined;
+  var endPos = end === undefined ? length : toAbsoluteIndex(end, length);
+  while (endPos > index) O[index++] = value;
+  return O;
 };
 
 
@@ -458,6 +780,24 @@ module.exports = function (METHOD_NAME) {
 
 /***/ }),
 
+/***/ 4194:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var fails = __webpack_require__(5981);
+
+module.exports = function (METHOD_NAME, argument) {
+  var method = [][METHOD_NAME];
+  return !!method && fails(function () {
+    // eslint-disable-next-line no-useless-call,no-throw-literal
+    method.call(null, argument || function () { throw 1; }, 1);
+  });
+};
+
+
+/***/ }),
+
 /***/ 5486:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -487,6 +827,53 @@ module.exports = function (METHOD_NAME, options) {
 
     method.call(O, argument0, argument1);
   });
+};
+
+
+/***/ }),
+
+/***/ 6499:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var aFunction = __webpack_require__(3916);
+var toObject = __webpack_require__(9678);
+var IndexedObject = __webpack_require__(7026);
+var toLength = __webpack_require__(3057);
+
+// `Array.prototype.{ reduce, reduceRight }` methods implementation
+var createMethod = function (IS_RIGHT) {
+  return function (that, callbackfn, argumentsLength, memo) {
+    aFunction(callbackfn);
+    var O = toObject(that);
+    var self = IndexedObject(O);
+    var length = toLength(O.length);
+    var index = IS_RIGHT ? length - 1 : 0;
+    var i = IS_RIGHT ? -1 : 1;
+    if (argumentsLength < 2) while (true) {
+      if (index in self) {
+        memo = self[index];
+        index += i;
+        break;
+      }
+      index += i;
+      if (IS_RIGHT ? index < 0 : length <= index) {
+        throw TypeError('Reduce of empty array with no initial value');
+      }
+    }
+    for (;IS_RIGHT ? index >= 0 : length > index; index += i) if (index in self) {
+      memo = callbackfn(memo, self[index], index, O);
+    }
+    return memo;
+  };
+};
+
+module.exports = {
+  // `Array.prototype.reduce` method
+  // https://tc39.es/ecma262/#sec-array.prototype.reduce
+  left: createMethod(false),
+  // `Array.prototype.reduceRight` method
+  // https://tc39.es/ecma262/#sec-array.prototype.reduceright
+  right: createMethod(true)
 };
 
 
@@ -901,6 +1288,17 @@ module.exports = {
   TextTrackList: 0,
   TouchList: 0
 };
+
+
+/***/ }),
+
+/***/ 6049:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var classof = __webpack_require__(2532);
+var global = __webpack_require__(1899);
+
+module.exports = classof(global.process) == 'process';
 
 
 /***/ }),
@@ -1406,6 +1804,26 @@ var NATIVE = isForced.NATIVE = 'N';
 var POLYFILL = isForced.POLYFILL = 'P';
 
 module.exports = isForced;
+
+
+/***/ }),
+
+/***/ 663:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var classof = __webpack_require__(9697);
+var wellKnownSymbol = __webpack_require__(9813);
+var Iterators = __webpack_require__(2077);
+
+var ITERATOR = wellKnownSymbol('iterator');
+
+module.exports = function (it) {
+  var O = Object(it);
+  return O[ITERATOR] !== undefined
+    || '@@iterator' in O
+    // eslint-disable-next-line no-prototype-builtins
+    || Iterators.hasOwnProperty(classof(O));
+};
 
 
 /***/ }),
@@ -2272,6 +2690,25 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 /***/ }),
 
+/***/ 290:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(6887);
+var fill = __webpack_require__(1860);
+var addToUnscopables = __webpack_require__(8479);
+
+// `Array.prototype.fill` method
+// https://tc39.es/ecma262/#sec-array.prototype.fill
+$({ target: 'Array', proto: true }, {
+  fill: fill
+});
+
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables('fill');
+
+
+/***/ }),
+
 /***/ 4929:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -2396,6 +2833,35 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
+
+
+/***/ }),
+
+/***/ 1876:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(6887);
+var $reduce = __webpack_require__(6499).left;
+var arrayMethodIsStrict = __webpack_require__(4194);
+var arrayMethodUsesToLength = __webpack_require__(5486);
+var CHROME_VERSION = __webpack_require__(3385);
+var IS_NODE = __webpack_require__(6049);
+
+var STRICT_METHOD = arrayMethodIsStrict('reduce');
+var USES_TO_LENGTH = arrayMethodUsesToLength('reduce', { 1: 0 });
+// Chrome 80-82 has a critical bug
+// https://bugs.chromium.org/p/chromium/issues/detail?id=1049982
+var CHROME_BUG = !IS_NODE && CHROME_VERSION > 79 && CHROME_VERSION < 83;
+
+// `Array.prototype.reduce` method
+// https://tc39.es/ecma262/#sec-array.prototype.reduce
+$({ target: 'Array', proto: true, forced: !STRICT_METHOD || !USES_TO_LENGTH || CHROME_BUG }, {
+  reduce: function reduce(callbackfn /* , initialValue */) {
+    return $reduce(this, callbackfn, arguments.length, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
 
 
 /***/ }),
@@ -3035,6 +3501,65 @@ defineWellKnownSymbol('unscopables');
 
 /***/ }),
 
+/***/ 8783:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(6349);
+
+// `Symbol.asyncDispose` well-known symbol
+// https://github.com/tc39/proposal-using-statement
+defineWellKnownSymbol('asyncDispose');
+
+
+/***/ }),
+
+/***/ 3975:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(6349);
+
+// `Symbol.dispose` well-known symbol
+// https://github.com/tc39/proposal-using-statement
+defineWellKnownSymbol('dispose');
+
+
+/***/ }),
+
+/***/ 6774:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(6349);
+
+// `Symbol.observable` well-known symbol
+// https://github.com/tc39/proposal-observable
+defineWellKnownSymbol('observable');
+
+
+/***/ }),
+
+/***/ 620:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(6349);
+
+// `Symbol.patternMatch` well-known symbol
+// https://github.com/tc39/proposal-pattern-matching
+defineWellKnownSymbol('patternMatch');
+
+
+/***/ }),
+
+/***/ 6172:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: remove from `core-js@4`
+var defineWellKnownSymbol = __webpack_require__(6349);
+
+defineWellKnownSymbol('replaceAll');
+
+
+/***/ }),
+
 /***/ 7634:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -3115,10 +3640,40 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ 8065:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(6043);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 9743:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(446);
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ 6064:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(7147);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 2527:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(8025);
 
 module.exports = parent;
 
@@ -3593,8 +4148,186 @@ function vue2diff(prevChildren, nextChildren, parent) {
     }
   }
 }
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js-stable/instance/reduce.js
+var reduce = __webpack_require__(2366);
+var reduce_default = /*#__PURE__*/__webpack_require__.n(reduce);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js-stable/instance/concat.js
+var concat = __webpack_require__(7766);
+var concat_default = /*#__PURE__*/__webpack_require__.n(concat);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/helpers/toConsumableArray.js
+var toConsumableArray = __webpack_require__(9036);
+var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableArray);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js-stable/instance/fill.js
+var fill = __webpack_require__(4494);
+var fill_default = /*#__PURE__*/__webpack_require__.n(fill);
 ;// CONCATENATED MODULE: ./src/diff/vue3-diff.js
-function vue3diff(prevChildren, nextChildren, parent) {}
+
+
+
+
+
+
+function vue3diff(prevChildren, nextChildren, parent) {
+  var _context;
+
+  var j = 0,
+      prevEnd = prevChildren.length - 1,
+      nextEnd = nextChildren.length - 1,
+      prevNode = prevChildren[j],
+      nextNode = nextChildren[j];
+
+  outer: {
+    while (prevNode.key === nextNode.key) {
+      patch(prevNode, nextNode, parent);
+      j++;
+      if (j > prevEnd || j > nextEnd) break outer;
+      prevNode = prevChildren[j];
+      nextNode = nextChildren[j];
+    }
+
+    prevNode = prevChildren[prevEnd];
+    nextNode = nextChildren[nextEnd];
+
+    while (prevNode.key === nextNode.key) {
+      patch(prevNode, nextNode, parent);
+      prevEnd--;
+      nextEnd--;
+      if (j > prevEnd || j > nextEnd) break outer;
+      prevNode = prevChildren[prevEnd];
+      nextNode = nextChildren[nextEnd];
+    }
+  }
+
+  if (j > prevEnd && j <= nextEnd) {
+    var nextPos = nextEnd + 1,
+        refNode = nextPos >= nextChildren.length ? null : nextChildren[nextPos].el;
+
+    while (j <= nextEd) {
+      mount(nextChildren[j++], parent, refNode);
+    }
+
+    return;
+  } else if (j > nextEnd) {
+    while (j <= prevEnd) {
+      parent.removeChild(prevChildren[j++].el);
+    }
+
+    return;
+  }
+
+  var nextStart = j,
+      prevStart = j,
+      nextLeft = nextEnd - j + 1,
+      nextIndexMap = {},
+      source = fill_default()(_context = new Array(nextLeft)).call(_context, -1),
+      patched = 0,
+      lastIndex = 0,
+      move = false;
+
+  for (var i = nextStart; i <= nextEnd; i++) {
+    var key = nextChildren[i].key;
+    nextIndexMap[key] = i;
+  }
+
+  for (var _i = prevStart; _i <= prevEnd; _i++) {
+    var prevChild = prevChildren[_i],
+        prevKey = prevChild.key,
+        nextIndex = nextIndexMap[prevKey];
+
+    if (patched >= nextLeft || nextIndex === undefined) {
+      parent.removeChild(prevChild.el);
+      continue;
+    }
+
+    patched++;
+    var nextChild = nextChildren[nextIndex];
+    patch(prevChild, nextChild, parent);
+    source[nextIndex - nextStart] = _i;
+
+    if (nextIndex < lastIndex) {
+      move = true;
+    } else {
+      lastIndex = nextIndex;
+    }
+  }
+
+  if (move) {
+    var seq = lis(source);
+
+    var _j = seq.length - 1;
+
+    for (var _i2 = nextLeft - 1; _i2 >= 0; _i2--) {
+      var _nextChildren$_nextPo;
+
+      var pos = nextStart + _i2,
+          _nextPos = pos + 1,
+          _nextChild = nextChildren[pos],
+          _refNode = (_nextChildren$_nextPo = nextChildren[_nextPos]) === null || _nextChildren$_nextPo === void 0 ? void 0 : _nextChildren$_nextPo.el;
+
+      if (source[_i2] === -1) {
+        mount(_nextChild, parent, _refNode);
+      } else if (_i2 !== seq[_j]) {
+        parent.insertBefore(_nextChild.el, _refNode);
+      } else {
+        _j--;
+      }
+    }
+  } else {
+    for (var _i3 = nextLeft - 1; _i3 >= 0; _i3--) {
+      if (source[_i3] === -1) {
+        var _nextChildren$_nextPo2;
+
+        var _pos = nextStart + _i3,
+            _nextPos2 = _pos + 1,
+            _nextChild2 = nextChildren[_pos],
+            _refNode2 = (_nextChildren$_nextPo2 = nextChildren[_nextPos2]) === null || _nextChildren$_nextPo2 === void 0 ? void 0 : _nextChildren$_nextPo2.el;
+
+        mount(_nextChild2, parent, _refNode2);
+      }
+    }
+  }
+}
+
+function lis(arr) {
+  var _context2;
+
+  var len = arr.length,
+      result = [],
+      dp = fill_default()(_context2 = new Array(len)).call(_context2, 1);
+
+  for (var i = 0; i < len; i++) {
+    result.push([i]);
+  }
+
+  for (var _i4 = len - 1; _i4 >= 0; _i4--) {
+    var _context3;
+
+    var cur = arr[_i4],
+        nextIndex = undefined;
+    if (cur === -1) continue;
+
+    for (var j = _i4 + 1; j < len; j++) {
+      var next = arr[j];
+
+      if (cur < next) {
+        var max = dp[j] + 1;
+
+        if (max > dp[_i4]) {
+          nextIndex = j;
+          dp[_i4] = max;
+        }
+      }
+    }
+
+    if (nextIndex !== undefined) result[_i4] = concat_default()(_context3 = []).call(_context3, toConsumableArray_default()(result[_i4]), toConsumableArray_default()(result[nextIndex]));
+  }
+
+  var index = reduce_default()(dp).call(dp, function (prev, cur, i, arr) {
+    return cur > arr[prev] ? i : prev;
+  }, dp.length - 1);
+
+  return result[index];
+}
 ;// CONCATENATED MODULE: ./src/diff/index.js
 
 
